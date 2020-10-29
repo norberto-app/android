@@ -3,5 +3,6 @@
     "mail" : {
         "password" : "my email server secret"
     },
-    "jwtPrivateKey": ""
+    "jwtPrivateKey": "",
+    "db": "mongodb+srv://norberto:norberto@cluster0.5jjd3.mongodb.net/playground"
 }

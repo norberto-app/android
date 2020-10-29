@@ -1,4 +1,3 @@
-const log = require("debug")("app:startup");
 const winston = require("winston")
 const express = require("express");
 const app = express();
@@ -8,6 +7,9 @@ require("./startup/db")();
 require("./startup/logging")();
 require("./startup/config")(app);
 require("./startup/validation")();
+//require("./startup/prod")(app);
 
-const port = process.env.PORT || 7000;
-app.listen(port, () => winston.info(`Listening on port ${port} ...`));
+const port = process.env.PORT || 7010;
+const server = app.listen(port, () => winston.info(`Listening on port ${port} ...`));
+
+module.exports = server;

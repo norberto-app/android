@@ -2,17 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const validateObjectId = require("../middleware/validateObjectId");
 const { Customer, validate } = require("../models/customer");
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  throw new Error('Could not get the request customer');
-
   res.send(await Customer.find().sort("name"));
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", validateObjectId, async (req, res) => {
   const id = req.params.id;
   const customer = await Customer.findById(id);
 
@@ -39,7 +38,7 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", auth, validateObjectId, async (req, res) => {
   const { error } = validate(req.body);
 
   if (error) {
