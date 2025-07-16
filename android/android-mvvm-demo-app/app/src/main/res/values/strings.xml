@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">svitla demo app</string>
+
+    <!-- Top Bar Titles -->
+    <string name="main_list_top_bar_title">Svitla Item\'s List</string>
+
+    <!-- Generic Messages -->
+    <string name="error_no_description">We cannot retrieve the data at this time. Try again later.</string>
+</resources>
